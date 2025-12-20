@@ -1,0 +1,35 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MealPlanner.Views.RecipeDetailPage"
+             Title="Recipe Details">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Image Source="{Binding strMealThumb}" 
+                   HeightRequest="300" 
+                   Aspect="AspectFill" />
+
+            <Label Text="{Binding strMeal}" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" />
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Frame BackgroundColor="LightGray" CornerRadius="10" Padding="5">
+                    <Label Text="{Binding strCategory}" />
+                </Frame>
+                <Frame BackgroundColor="LightGray" CornerRadius="10" Padding="5">
+                    <Label Text="{Binding strArea}" />
+                </Frame>
+            </HorizontalStackLayout>
+
+            <Label Text="Instructions" FontSize="18" FontAttributes="Bold" />
+            <Label Text="{Binding strInstructions}" LineBreakMode="WordWrap" />
+
+            <Button Text="Save to Favorites" 
+                    Clicked="OnSaveFavoriteClicked"
+                    BackgroundColor="Green" 
+                    TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

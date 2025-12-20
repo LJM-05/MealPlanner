@@ -1,0 +1,27 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MealPlanner.Views.RecipeSearchPage"
+             Title="Search Recipes">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Entry x:Name="SearchEntry" 
+               Placeholder="Search for a recipe (e.g. Pizza)..." />
+
+        <Button Text="Search" 
+                Clicked="OnSearchClicked" 
+                BackgroundColor="MediumPurple" />
+
+        <CollectionView x:Name="RecipesListView" 
+                SelectionMode="Single" 
+                SelectionChanged="OnRecipeSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Padding="10" Spacing="10">
+                        <Image Source="{Binding strMealThumb}" HeightRequest="50" WidthRequest="50" />
+                        <Label Text="{Binding strMeal}" VerticalOptions="Center" FontAttributes="Bold" />
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

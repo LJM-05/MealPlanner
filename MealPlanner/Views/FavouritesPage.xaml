@@ -1,0 +1,27 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MealPlanner.Views.FavoritesPage"
+             Title="My Favorites">
+
+    <Grid RowDefinitions="Auto, *">
+        <Label Text="Saved Recipes" FontSize="22" FontAttributes="Bold" Padding="20" />
+
+        <CollectionView x:Name="FavoritesListView" Grid.Row="1" 
+                        SelectionMode="Single"
+                        SelectionChanged="OnRecipeSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10,5" Padding="10" BorderColor="LightGray">
+                        <HorizontalStackLayout Spacing="15">
+                            <Image Source="{Binding strMealThumb}" HeightRequest="60" WidthRequest="60" Aspect="AspectFill" />
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label Text="{Binding strMeal}" FontAttributes="Bold" FontSize="16" />
+                                <Label Text="{Binding strCategory}" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+    </ContentPage>

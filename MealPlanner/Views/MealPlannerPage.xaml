@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MealPlanner.Views.MealPlannerPage"
+             Title="Weekly Meal Plan">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Plan Your Week" FontSize="22" FontAttributes="Bold" />
+
+            <Label Text="Select Day:" />
+            <Picker x:Name="DayPicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Monday</x:String>
+                        <x:String>Tuesday</x:String>
+                        <x:String>Wednesday</x:String>
+                        <x:String>Thursday</x:String>
+                        <x:String>Friday</x:String>
+                        <x:String>Saturday</x:String>
+                        <x:String>Sunday</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Select Recipe from Favorites:" />
+            <Picker x:Name="RecipePicker" 
+                    Title="Choose a saved meal"
+                    ItemDisplayBinding="{Binding strMeal}" />
+
+            <Frame BorderColor="Gray" Padding="10">
+                <VerticalStackLayout>
+                    <Label x:Name="CurrentMealLabel" Text="No meal planned yet" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Save Weekly Plan" 
+                    Clicked="OnSavePlanClicked" 
+                    BackgroundColor="Blue" 
+                    TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

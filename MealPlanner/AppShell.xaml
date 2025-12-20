@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MealPlanner.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MealPlanner"
+    xmlns:views="clr-namespace:MealPlanner.Views"
+    Title="Meal Planner App">
+
+    <TabBar>
+        <Tab Title="Search">
+            <ShellContent 
+                Title="Search"
+                ContentTemplate="{DataTemplate views:RecipeSearchPage}" 
+                Route="RecipeSearchPage" />
+        </Tab>
+
+        <Tab Title="Favorites">
+            <ShellContent 
+                Title="Favorites"
+                ContentTemplate="{DataTemplate views:FavoritesPage}" 
+                Route="FavoritesPage" />
+        </Tab>
+
+        <Tab Title="My Plan">
+            <ShellContent 
+                Title="Plan"
+                ContentTemplate="{DataTemplate views:MealPlannerPage}" 
+                Route="MealPlannerPage" />
+        </Tab>
+    </TabBar>
+</Shell>
